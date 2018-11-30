@@ -1,23 +1,29 @@
 #include<stdio.h>
 
-int evenDigits ( int num ) {
-  if ( num < 0 ) {
-    return -evenDigits ( -num );
+int evenDigits(int n)
+{
+  if(n<0)
+  {
+    return -evenDigits(-n);
   }
-  if( num < 10 && num%2 == 0 ) {
-    return num;
+  if(n<10 && n%2==0)
+  {
+    return n;
   }
-  if( ( num % 10 ) % 2 == 0 ) {
-    return 10*(evenDigits(num/10))+num%10;
+  if((n%10)%2==0)
+  {
+    return 10*(evenDigits(n/10))+n%10;
   }
   else
-    return evenDigits(num/10);
+    return evenDigits(n/10);
+  
 }
-int main() {
+int main()
+{
 	int num,final;
 	printf("Enter the number :\n");
 	scanf("%d",&num);
-	final=evenDigits ( num );
+	final=evenDigits(num);
 	printf("The new number is :\n");
 	printf("%d",final);
 	return 0;
